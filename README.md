@@ -13,7 +13,15 @@ You play as a small android descending into a vast, dark abyss left behind by th
 - Player decisions tracked for narrative consequences
 
 ## Status
-Early development. Current goal is a small vertical slice that captures the intended emotional tone and visual identity before expanding systems.
+Early development. First vertical slice implemented - see `IMPLEMENTATION.md` for details.
+
+The vertical slice includes:
+- Pixel-perfect rendering with tiny player sprite
+- Dark ambient lighting with player-centered light
+- Basic HUD (Health + Charge)
+- Charge drain system
+- Biome ambient audio system (Crystal Chasm, placeholder)
+- Automatic flag tracking system
 
 ## Tech
 - Engine: Godot 4
