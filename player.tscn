@@ -20,6 +20,7 @@ shape = SubResource("RectangleShape2D_1")
 
 [node name="Light2D" type="Light2D" parent="."]
 enabled = true
-texture_scale = 1.0
-energy = 1.5
-range_item_cull_mask = 1
+texture_scale = 2.5
+energy = 1.8
+range_layer_min = -100
+range_layer_max = 100

@@ -4,11 +4,13 @@ extends Node2D
 
 var camera: Camera2D
 var player: Node2D
+var fog_rect: ColorRect
 
 func _ready():
 	# Get references
 	camera = $Camera2D
 	player = $Player
+	fog_rect = $FogLayer/Fog
 	
 	# Set up very dark ambient
 	var viewport = get_viewport()

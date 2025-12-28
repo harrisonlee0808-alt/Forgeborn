@@ -36,3 +36,25 @@ show_percentage = false
 theme_override_styles/background = SubResource("StyleBoxFlat_1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2")
 
+[node name="LogContainer" type="VBoxContainer" parent="."]
+offset_left = 20.0
+offset_top = 120.0
+offset_right = 500.0
+offset_bottom = 400.0
+
+[node name="LogLabel" type="Label" parent="LogContainer"]
+offset_right = 480.0
+offset_bottom = 20.0
+text = "Log"
+theme_override_colors/font_color = Color(0.5, 0.55, 0.6, 1)
+
+[node name="LogScroll" type="ScrollContainer" parent="LogContainer"]
+offset_top = 24.0
+offset_right = 480.0
+offset_bottom = 280.0
+scroll_horizontal_enabled = false
+
+[node name="LogPanel" type="VBoxContainer" parent="LogContainer/LogScroll"]
+offset_right = 460.0
+offset_bottom = 256.0
+theme_override_constants/separation = 8

@@ -22,6 +22,9 @@ var areas_visited: Dictionary = {}
 # Current biome context
 var current_biome: String = "crystal_chasm"
 
+# Log entries for lore/story
+var log_entries: Array[String] = []
+
 func _ready():
 	# Initialize with default values
 	pass
@@ -69,9 +72,19 @@ func save_game() -> Dictionary:
 		"violence_count": violence_count,
 		"story_flags": story_flags,
 		"areas_visited": areas_visited,
-		"current_biome": current_biome
+		"current_biome": current_biome,
+		"log_entries": log_entries
 	}
 	return save_data
+
+## Add entry to log
+func add_log_entry(text: String):
+	log_entries.append(text)
+	print("Log: ", text)
+
+## Get all log entries
+func get_log_entries() -> Array[String]:
+	return log_entries
 
 ## Load game state (stubbed for now)
 func load_game(save_data: Dictionary):
@@ -82,4 +95,5 @@ func load_game(save_data: Dictionary):
 	story_flags = save_data.get("story_flags", {})
 	areas_visited = save_data.get("areas_visited", {})
 	current_biome = save_data.get("current_biome", "crystal_chasm")
+	log_entries = save_data.get("log_entries", [])
 
