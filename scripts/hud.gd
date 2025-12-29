@@ -1,11 +1,12 @@
 extends CanvasLayer
 
-## HUD controller - displays Health and Charge bars, Log panel
+## HUD controller - displays Health and Charge bars, Log panel, interaction hint
 
 var health_bar: ProgressBar
 var charge_bar: ProgressBar
 var log_panel: VBoxContainer
 var log_scroll: ScrollContainer
+var interact_hint: Label
 
 func _ready():
 	# Add to group for area trigger access
@@ -16,6 +17,7 @@ func _ready():
 	charge_bar = $HUDContainer/ChargeBar
 	log_panel = $LogContainer/LogScroll/LogPanel
 	log_scroll = $LogContainer/LogScroll
+	interact_hint = $InteractionHint
 	
 	# Set up bar styles to match world palette (dark, minimal)
 	if health_bar:
@@ -24,6 +26,10 @@ func _ready():
 	if charge_bar:
 		charge_bar.max_value = GameState.max_charge
 		charge_bar.value = GameState.charge
+	
+	# Hide interaction hint initially
+	if interact_hint:
+		interact_hint.visible = false
 	
 	# Set up log panel (initially hidden/minimal)
 	if log_panel:
@@ -35,6 +41,17 @@ func _process(_delta: float):
 		health_bar.value = GameState.health
 	if charge_bar:
 		charge_bar.value = GameState.charge
+	
+	# Update interaction hint visibility
+	if interact_hint:
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			var has_interactable = false
+			if player.has_method("get_nearest_interactable"):
+				has_interactable = player.get_nearest_interactable() != null
+			elif "nearest_interactable" in player:
+				has_interactable = player.nearest_interactable != null
+			interact_hint.visible = has_interactable
 
 ## Flicker HUD (called by area triggers)
 func flicker(duration: float):
@@ -67,5 +84,3 @@ func update_log_display():
 func toggle_log():
 	if log_scroll:
 		log_scroll.visible = not log_scroll.visible
-
-

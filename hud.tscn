@@ -36,11 +36,20 @@ show_percentage = false
 theme_override_styles/background = SubResource("StyleBoxFlat_1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2")
 
-[node name="LogContainer" type="VBoxContainer" parent="."]
+[node name="InteractionHint" type="Label" parent="."]
 offset_left = 20.0
 offset_top = 120.0
+offset_right = 120.0
+offset_bottom = 140.0
+text = "Press E"
+theme_override_colors/font_color = Color(0.5, 0.55, 0.6, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="LogContainer" type="VBoxContainer" parent="."]
+offset_left = 20.0
+offset_top = 150.0
 offset_right = 500.0
-offset_bottom = 400.0
+offset_bottom = 430.0
 
 [node name="LogLabel" type="Label" parent="LogContainer"]
 offset_right = 480.0

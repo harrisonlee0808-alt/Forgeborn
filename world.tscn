@@ -34,17 +34,17 @@ script = ExtResource("1_world")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
-position_smoothing_speed = 5.0
-limit_left = -10000
-limit_top = -10000
-limit_right = 10000
-limit_bottom = 10000
+position_smoothing_speed = 8.0
+limit_left = -2000
+limit_top = -400
+limit_right = 2000
+limit_bottom = 450
 
 [node name="Background" type="ColorRect" parent="."]
-offset_left = -10000.0
-offset_top = -10000.0
-offset_right = 10000.0
-offset_bottom = 10000.0
+offset_left = -3000.0
+offset_top = -1000.0
+offset_right = 3000.0
+offset_bottom = 1000.0
 color = Color(0.05, 0.08, 0.12, 1)
 z_index = -100
 
@@ -74,14 +74,14 @@ one_shot = false
 process_material = SubResource("ParticleProcessMaterial_1")
 
 [node name="Player" parent="." instance=ExtResource("2_player")]
-position = Vector2(0, 100)
+position = Vector2(0, 300)
 
 [node name="HUD" parent="." instance=ExtResource("3_hud")]
 
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="LorePickup1" type="Area2D" parent="Interactables"]
-position = Vector2(-400, 80)
+position = Vector2(-800, 260)
 script = ExtResource("6_lore_pickup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/LorePickup1"]
@@ -95,7 +95,7 @@ offset_bottom = 25.0
 color = Color(0.25, 0.28, 0.32, 1)
 
 [node name="Door1" type="StaticBody2D" parent="Interactables"]
-position = Vector2(400, 200)
+position = Vector2(800, 292)
 
 [node name="DoorArea" type="Area2D" parent="Interactables/Door1"]
 script = ExtResource("5_door")
@@ -114,7 +114,7 @@ color = Color(0.20, 0.23, 0.27, 1)
 shape = SubResource("RectangleShape2D_3")
 
 [node name="TriggerZone1" type="Area2D" parent="Interactables"]
-position = Vector2(0, -80)
+position = Vector2(0, -100)
 script = ExtResource("7_trigger_zone")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/TriggerZone1"]

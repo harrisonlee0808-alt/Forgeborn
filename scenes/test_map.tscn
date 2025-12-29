@@ -1,107 +1,167 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=15 format=3]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(2000, 50)
+size = Vector2(4000, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
-size = Vector2(50, 600)
+size = Vector2(32, 1000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3"]
-size = Vector2(300, 30)
+size = Vector2(400, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4"]
-size = Vector2(200, 30)
+size = Vector2(350, 32)
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_1"]
-points = PackedVector2Array(0, 0, 200, 0, 200, -150, 0, -200)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5"]
+size = Vector2(280, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6"]
+size = Vector2(32, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7"]
+size = Vector2(250, 32)
 
 [node name="TestMap" type="Node2D"]
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 250)
+position = Vector2(0, 400)
 
 [node name="GroundVisual" type="ColorRect" parent="Ground"]
-offset_left = -1000.0
-offset_top = -25.0
-offset_right = 1000.0
-offset_bottom = 25.0
+offset_left = -2000.0
+offset_top = -16.0
+offset_right = 2000.0
+offset_bottom = 16.0
 color = Color(0.15, 0.18, 0.22, 1)
 
 [node name="GroundCollision" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectangleShape2D_1")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
-position = Vector2(-1000, 0)
+position = Vector2(-2000, -100)
 
 [node name="LeftWallVisual" type="ColorRect" parent="LeftWall"]
-offset_left = -25.0
-offset_top = -300.0
-offset_right = 25.0
-offset_bottom = 300.0
+offset_left = -16.0
+offset_top = -500.0
+offset_right = 16.0
+offset_bottom = 500.0
 color = Color(0.12, 0.15, 0.18, 1)
 
 [node name="LeftWallCollision" type="CollisionShape2D" parent="LeftWall"]
 shape = SubResource("RectangleShape2D_2")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
-position = Vector2(1000, 0)
+position = Vector2(2000, -100)
 
 [node name="RightWallVisual" type="ColorRect" parent="RightWall"]
-offset_left = -25.0
-offset_top = -300.0
-offset_right = 25.0
-offset_bottom = 300.0
+offset_left = -16.0
+offset_top = -500.0
+offset_right = 16.0
+offset_bottom = 500.0
 color = Color(0.12, 0.15, 0.18, 1)
 
 [node name="RightWallCollision" type="CollisionShape2D" parent="RightWall"]
 shape = SubResource("RectangleShape2D_2")
 
-[node name="Platform1" type="StaticBody2D" parent="."]
-position = Vector2(-400, 100)
+[node name="CaveFloor1" type="StaticBody2D" parent="."]
+position = Vector2(-800, 280)
 
-[node name="Platform1Visual" type="ColorRect" parent="Platform1"]
-offset_left = -150.0
-offset_top = -15.0
-offset_right = 150.0
-offset_bottom = 15.0
+[node name="CaveFloor1Visual" type="ColorRect" parent="CaveFloor1"]
+offset_left = -200.0
+offset_top = -16.0
+offset_right = 200.0
+offset_bottom = 16.0
 color = Color(0.15, 0.18, 0.22, 1)
 
-[node name="Platform1Collision" type="CollisionShape2D" parent="Platform1"]
+[node name="CaveFloor1Collision" type="CollisionShape2D" parent="CaveFloor1"]
 shape = SubResource("RectangleShape2D_3")
 
-[node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(400, 50)
+[node name="CaveFloor2" type="StaticBody2D" parent="."]
+position = Vector2(800, 320)
 
-[node name="Platform2Visual" type="ColorRect" parent="Platform2"]
-offset_left = -100.0
-offset_top = -15.0
-offset_right = 100.0
-offset_bottom = 15.0
+[node name="CaveFloor2Visual" type="ColorRect" parent="CaveFloor2"]
+offset_left = -175.0
+offset_top = -16.0
+offset_right = 175.0
+offset_bottom = 16.0
 color = Color(0.15, 0.18, 0.22, 1)
 
-[node name="Platform2Collision" type="CollisionShape2D" parent="Platform2"]
+[node name="CaveFloor2Collision" type="CollisionShape2D" parent="CaveFloor2"]
 shape = SubResource("RectangleShape2D_4")
 
-[node name="Platform3" type="StaticBody2D" parent="."]
-position = Vector2(0, -100)
+[node name="Ledge1" type="StaticBody2D" parent="."]
+position = Vector2(-1200, 200)
 
-[node name="Platform3Visual" type="ColorRect" parent="Platform3"]
-offset_left = -150.0
-offset_top = -15.0
-offset_right = 150.0
-offset_bottom = 15.0
+[node name="Ledge1Visual" type="ColorRect" parent="Ledge1"]
+offset_left = -140.0
+offset_top = -16.0
+offset_right = 140.0
+offset_bottom = 16.0
 color = Color(0.15, 0.18, 0.22, 1)
 
-[node name="Platform3Collision" type="CollisionShape2D" parent="Platform3"]
+[node name="Ledge1Collision" type="CollisionShape2D" parent="Ledge1"]
+shape = SubResource("RectangleShape2D_5")
+
+[node name="Ledge2" type="StaticBody2D" parent="."]
+position = Vector2(1200, 180)
+
+[node name="Ledge2Visual" type="ColorRect" parent="Ledge2"]
+offset_left = -125.0
+offset_top = -16.0
+offset_right = 125.0
+offset_bottom = 16.0
+color = Color(0.15, 0.18, 0.22, 1)
+
+[node name="Ledge2Collision" type="CollisionShape2D" parent="Ledge2"]
+shape = SubResource("RectangleShape2D_7")
+
+[node name="VerticalWall1" type="StaticBody2D" parent="."]
+position = Vector2(-400, 200)
+
+[node name="VerticalWall1Visual" type="ColorRect" parent="VerticalWall1"]
+offset_left = -16.0
+offset_top = -90.0
+offset_right = 16.0
+offset_bottom = 90.0
+color = Color(0.12, 0.15, 0.18, 1)
+
+[node name="VerticalWall1Collision" type="CollisionShape2D" parent="VerticalWall1"]
+shape = SubResource("RectangleShape2D_6")
+
+[node name="VerticalWall2" type="StaticBody2D" parent="."]
+position = Vector2(600, 240)
+
+[node name="VerticalWall2Visual" type="ColorRect" parent="VerticalWall2"]
+offset_left = -16.0
+offset_top = -90.0
+offset_right = 16.0
+offset_bottom = 90.0
+color = Color(0.12, 0.15, 0.18, 1)
+
+[node name="VerticalWall2Collision" type="CollisionShape2D" parent="VerticalWall2"]
+shape = SubResource("RectangleShape2D_6")
+
+[node name="Ceiling1" type="StaticBody2D" parent="."]
+position = Vector2(-600, -200)
+
+[node name="Ceiling1Visual" type="ColorRect" parent="Ceiling1"]
+offset_left = -300.0
+offset_top = -16.0
+offset_right = 300.0
+offset_bottom = 16.0
+color = Color(0.10, 0.13, 0.16, 1)
+
+[node name="Ceiling1Collision" type="CollisionShape2D" parent="Ceiling1"]
 shape = SubResource("RectangleShape2D_3")
 
-[node name="Slope" type="StaticBody2D" parent="."]
-position = Vector2(-700, 200)
+[node name="Ceiling2" type="StaticBody2D" parent="."]
+position = Vector2(1000, -150)
 
-[node name="SlopeVisual" type="Polygon2D" parent="Slope"]
-polygon = PackedVector2Array(0, 0, 200, 0, 200, -150, 0, -200)
-color = Color(0.15, 0.18, 0.22, 1)
+[node name="Ceiling2Visual" type="ColorRect" parent="Ceiling2"]
+offset_left = -200.0
+offset_top = -16.0
+offset_right = 200.0
+offset_bottom = 16.0
+color = Color(0.10, 0.13, 0.16, 1)
 
-[node name="SlopeCollision" type="CollisionShape2D" parent="Slope"]
-shape = SubResource("ConvexPolygonShape2D_1")
-
+[node name="Ceiling2Collision" type="CollisionShape2D" parent="Ceiling2"]
+shape = SubResource("RectangleShape2D_4")
