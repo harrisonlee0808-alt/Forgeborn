@@ -1,4 +1,4 @@
-extends InteractableBase
+extends "res://scripts/interactables/interactable_base.gd"
 
 ## Door/Barrier that opens if a flag is set
 

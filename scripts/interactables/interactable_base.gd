@@ -13,6 +13,11 @@ func _ready():
 	# Add to interactable group
 	add_to_group("interactable")
 	
+	# Ensure monitoring is enabled for automatic triggers
+	monitoring = true
+	# Monitorable must be true for player's InteractionArea to detect us
+	monitorable = true
+	
 	# Connect area signals
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)

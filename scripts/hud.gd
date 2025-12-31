@@ -31,9 +31,12 @@ func _ready():
 	if interact_hint:
 		interact_hint.visible = false
 	
-	# Set up log panel (initially hidden/minimal)
+	# Set up log panel
 	if log_panel:
 		update_log_display()
+	# Show log scroll by default so it's visible
+	if log_scroll:
+		log_scroll.visible = true
 
 func _process(_delta: float):
 	# Update bars from GameState
@@ -72,10 +75,12 @@ func update_log_display():
 	for child in log_panel.get_children():
 		child.queue_free()
 	
-	# Add log entries
-	for entry in GameState.get_log_entries():
+	# Add log entries (show last 10 entries)
+	var entries = GameState.log_entries
+	var start_idx = max(0, entries.size() - 10)
+	for i in range(start_idx, entries.size()):
 		var label = Label.new()
-		label.text = entry
+		label.text = entries[i]
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		label.add_theme_color_override("font_color", Color(0.6, 0.65, 0.7, 1))
 		log_panel.add_child(label)

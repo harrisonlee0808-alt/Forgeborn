@@ -1,4 +1,4 @@
-extends InteractableBase
+extends "res://scripts/interactables/interactable_base.gd"
 
 ## Lore pickup - adds one log line and sets a flag when interacted
 
@@ -14,12 +14,12 @@ func _ready():
 	if pickup_id != "":
 		var flag_key = "collected_" + pickup_id
 		if GameState.has_flag(flag_key):
-		collected = true
-		can_be_interacted = false
-		# Visual: already collected (slightly brighter)
-		var pickup_sprite_node = get_node_or_null("PickupSprite")
-		if pickup_sprite_node and pickup_sprite_node is ColorRect:
-			pickup_sprite_node.color = Color(0.35, 0.38, 0.42, 1)
+			collected = true
+			can_be_interacted = false
+			# Visual: already collected (slightly brighter)
+			var pickup_sprite_node = get_node_or_null("PickupSprite")
+			if pickup_sprite_node and pickup_sprite_node is ColorRect:
+				pickup_sprite_node.color = Color(0.35, 0.38, 0.42, 1)
 
 func can_interact() -> bool:
 	return super.can_interact() and not collected
